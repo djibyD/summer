@@ -16,7 +16,7 @@ pipeline {
         }
 	stage('Deploy to tomcat') { 
             steps {
-                sh 'cp target/*.war djiby@172.16.4.188:/opt/tomcat/apache-tomcat-8.5.34/webapps/' 
+                sh 'scp target/*.war djiby@172.16.4.188:/opt/tomcat/apache-tomcat-8.5.34/webapps/' 
             }
         }
 
