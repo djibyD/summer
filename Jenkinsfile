@@ -14,6 +14,12 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
+	stage('Deploy to tomcat') { 
+            steps {
+                sh 'scp target/*.war /opt/tomcat/apache-tomcat-8.5.34/webapps/' 
+            }
+        }
+
     }
 
 }
