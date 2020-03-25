@@ -10,16 +10,18 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            steps {
+             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
-        }
-	stage('Deploy to tomcat') { 
-            sshagent(['deploy-dev']) {
-                sh 'scp target/*.war djiby@172.16.4.188:/opt/tomcat/apache-tomcat-8.5.34/webapps/'
-
+       }
+	stage('Deploy to tomcat') {
+             steps {
+		sshagent(['deploy-dev']) {
+			sh 'scp target/*.war djiby@172.16.4.188:/opt/tomcat/apache-tomcat-8.5.34/webapps/'
+		}         
             }
-        }
+ 
+       }
 
     }
 
