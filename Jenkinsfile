@@ -16,7 +16,8 @@ pipeline {
         }
 	stage('Deploy to tomcat') { 
             steps {
-                sh 'cp target/*.war /opt/' 
+                sh '''cd /opt/
+	              pwd''' 
             }
         }
 
