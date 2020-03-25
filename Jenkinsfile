@@ -17,7 +17,7 @@ pipeline {
 	stage('Deploy to tomcat') { 
             steps {
                 sh '''cd /opt/
-	              pwd''' 
+	             ls -a''' 
             }
         }
 
