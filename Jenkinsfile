@@ -16,7 +16,7 @@ pipeline {
        }
 	stage('Deploy to tomcat') {
              steps {
-		sshagent([]) {
+		sshagent(['suumer-deploy']) {
 
 			sh 'scp -o StrictHostKeyChecking=no target/*.war root@172.16.4.188:/opt/tomcat/apache-tomcat-8.5.34/webapps/'
 
